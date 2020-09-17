@@ -8,6 +8,7 @@
 #endif
 
 #include "handeye_client.h"
+#include "robot_movements_client.h"
 
 class Ui_CalibrationPanel;
 
@@ -48,7 +49,8 @@ protected:
 
   Ui_CalibrationPanel* m_ui;
 
-  HandeyeClient client;
+  HandeyeClient m_handeyeClient;
+  RobotMovementsClient m_robotMovementsClient;
 };
 
 }  // namespace easy_handeye_rviz_plugins

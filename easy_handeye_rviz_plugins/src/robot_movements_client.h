@@ -12,12 +12,16 @@ class RobotMovementsClient
 public:
   RobotMovementsClient();
 
-  std::vector<std::string> moveitGroups();
+  void selectCalibration(const std::string& calibration_namespace);
 
-  bool selectMoveitGroup(const std::string& group);
+  bool init(int32_t timeout_seconds);
+
+  bool checkStartingPose();
 
 private:
   std::string active_calibration_namespace = "";
+
+  bool is_ready = false;
 
   ros::ServiceClient check_starting_pose_client;
   ros::ServiceClient enumerate_target_poses_client;
@@ -28,4 +32,4 @@ private:
   ros::NodeHandle nh;
 };
 
-};  // namespace easy_handeye_rviz_plugins
+}  // namespace easy_handeye_rviz_plugins
